@@ -1,11 +1,11 @@
-package site.nomoreparties.stellarburgers;
+package site.nomoreparties.stellarburgers.api;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
-import io.restassured.specification.RequestSpecification;
 import io.restassured.response.ValidatableResponse;
+import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
 

@@ -1,4 +1,4 @@
-package site.nomoreparties.stellarburgers.pojo;
+package site.nomoreparties.stellarburgers.api.pojo;
 
 public class UserDTO {
     private String email;

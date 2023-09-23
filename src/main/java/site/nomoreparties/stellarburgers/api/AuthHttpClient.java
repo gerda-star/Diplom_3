@@ -1,8 +1,8 @@
-package site.nomoreparties.stellarburgers;
+package site.nomoreparties.stellarburgers.api;
 
 
 import io.restassured.response.ValidatableResponse;
-import site.nomoreparties.stellarburgers.pojo.UserDTO;
+import site.nomoreparties.stellarburgers.api.pojo.UserDTO;
 
 public class AuthHttpClient extends BaseHttpClient {
 
@@ -28,8 +28,5 @@ public class AuthHttpClient extends BaseHttpClient {
         return doGetRequest(url + "user", token);
     }
 
-    public ValidatableResponse patchUser(UserDTO userDTO, String token) {
-        return doPatchRequest(url + "user", userDTO, token);
-    }
 
 }

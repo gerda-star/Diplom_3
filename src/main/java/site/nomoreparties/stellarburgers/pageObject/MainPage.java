@@ -1,2 +1,5 @@
-package site.nomoreparties.stellarburgers.pageObject;public class MainPage {
+package site.nomoreparties.stellarburgers.pageObject;
+
+public class MainPage {
+
 }
