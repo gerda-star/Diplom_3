@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+
 public class WebDriverCreator {
 
     public static final String YANDEX_BROWSER_PATH = "C:/Users/EKATERINA/AppData/Local/Yandex/YandexBrowser/Application/browser.exe";
@@ -12,6 +13,7 @@ public class WebDriverCreator {
     public static WebDriver createWebDriver() {
         String browser = System.getProperty("browser");
         if (browser == null) {
+
             return createChromeDriver();
         }
 

@@ -24,27 +24,34 @@ public class RegisterPage {
     }
 
     @Step("Заполнение формы регистрации")
-    public RegisterPage fillAuthForm(String name, String email, String password) {
+    public RegisterPage fillRegForm(String name, String email, String password) {
         driver.findElement(nameField).sendKeys(name);
         driver.findElement(emailField).sendKeys(email);
         driver.findElement(passwordField).sendKeys(password);
         return this;
     }
 
-    @Step("Клик на кнопку 'Зарегистрироваться'")
+    @Step("Клик по кнопке 'Зарегистрироваться'")
     public LoginPage clickRegisterButton() {
         driver.findElement(registerButton).click();
         return new LoginPage(driver);
     }
 
     @Step("Проверка наличия ошибки для неправильного пароля")
-    public boolean validateTextInvalidPassword() {
+    public boolean validateInvalidPasswordText() {
         return driver.findElement(errorInvalidPassword).isDisplayed();
     }
 
-    @Step("Клик на кнопку 'Войти'")
-    public void clickLogin() {
+    @Step("Клик по кнопке 'Войти'")
+    public LoginPage clickSignIn() {
         driver.findElement(signInButton).click();
+        return new LoginPage(driver);
+    }
+
+    @Step("Открытие страницы регистарции")
+    public RegisterPage openRegisterPage() {
+        driver.get(url);
+        return this;
     }
 
 }

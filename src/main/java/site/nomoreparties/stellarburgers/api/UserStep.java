@@ -12,7 +12,6 @@ public class UserStep {
 
     static final AuthHttpClient authHttpClient = new AuthHttpClient(API_URL);
     static ValidatableResponse response;
-    public UserDTO userDTO;
 
 
     @Step("Формирование данных для создания пользователя")
@@ -28,14 +27,15 @@ public class UserStep {
     }
 
     @Step("Создание случайного пользователя: post запрос к ендпоинту auth/register")
-    public static String createUser() {
-        response = authHttpClient.register(generateUser());
-        return response.extract().path("accessToken").toString();
+    public static UserDTO createUser() {
+        UserDTO userDTO = generateUser();
+        response = authHttpClient.register(userDTO);
+        return userDTO;
     }
     @Step("Получение токена: post запрос к ендпоинту auth/register")
     public static String getToken(UserDTO userDTO) {
-        response = authHttpClient.login(userDTO);
         try {
+            response = authHttpClient.login(userDTO);
             return response.extract().path("accessToken").toString();
         } catch (Exception e) {
             return null;

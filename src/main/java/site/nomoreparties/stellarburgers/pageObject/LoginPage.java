@@ -24,27 +24,38 @@ public class LoginPage {
     }
 
     @Step("Заполнение формы авторизации")
-    public void loginForm(String email, String password) {
+    public LoginPage fillLoginForm(String email, String password) {
         driver.findElement(emailInput).sendKeys(email);
         driver.findElement(passwordInput).sendKeys(password);
+        return this;
     }
 
-    @Step("Клик на кнопку 'Войти'")
-    public void clickLoginButton() {
+    @Step("Клик по кнопке 'Войти'")
+    public MainPage clickLoginButton() {
         driver.findElement(loginButton).click();
+        return new MainPage(driver);
     }
+
     @Step("Нажатие на ссылку Зарегистрироваться")
-    public void clickRegistrationButton() {
+    public RegisterPage clickRegistrationButton() {
         driver.findElement(registrationButton).click();
+        return new RegisterPage(driver);
     }
 
     @Step("Нажатие на ссылку Восстановить пароль")
-    public void clickForgotPasswordButton() {
+    public ForgotPasswordPage clickForgotPasswordButton() {
         driver.findElement(forgotPasswordButton).click();
+        return new ForgotPasswordPage(driver);
     }
 
-    @Step("Проверка перехода на страницу авторизации")
-    public boolean validateOpening() {
+    @Step("Открытие страницы входа в аккаут")
+    public LoginPage openLoginPage() {
+        driver.get(url);
+        return this;
+    }
+
+    @Step("Проверка перехода на страницу 'Вход")
+    public boolean validateOpeningLoginPage() {
         return driver.findElement(enterHeading).isDisplayed();
     }
 }
